@@ -127,11 +127,10 @@ class Converter:
                 yield output
 
         except RateLimitError as rle:
-            return rle.message
+            yield rle.message
 
         except Exception as e:
-            print(f"Error: {e}")
-            return f"Something went wrong! {e}"
+            yield f"Something went wrong! {e}"
 
     def execute_python(self, code):
         try:
