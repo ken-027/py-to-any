@@ -105,7 +105,9 @@ class Converter:
             # implementation of ratelimiter here
             response = requests.post(
                 ratelimit_api,
-                json={"token": request_token}
+                headers={
+                    "custom-header": request_token
+                }
             )
             status_code = response.status_code
 
